@@ -1,0 +1,19 @@
+services:
+  th5-ocr:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [ gpu ]
+    networks:
+      - custom_network
+
+networks:
+  custom_network:
+    driver: bridge
+    name: ${NETWORK_NAME}
