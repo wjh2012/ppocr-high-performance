@@ -1,5 +1,5 @@
 services:
-  th5-ocr:
+  ppocr-high-performance:
     build:
       context: .
       dockerfile: Dockerfile
