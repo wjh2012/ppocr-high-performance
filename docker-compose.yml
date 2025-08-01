@@ -3,6 +3,8 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    ports:
+      - "1008:8000"
     deploy:
       resources:
         reservations:
