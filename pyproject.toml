@@ -6,7 +6,6 @@ readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
     "fastapi[standard]>=0.116.1",
-    "paddleocr>=3.0.0",
     "setuptools>=80.9.0",
     "uvicorn>=0.35.0",
 ]
@@ -14,10 +13,12 @@ dependencies = [
 [project.optional-dependencies]
 dev = [
     "paddlepaddle==3.0.0",
+    "paddleocr>=3.0.0",
     "black"
 ]
 production = [
     "paddlepaddle-gpu==3.0.0",
+    "paddleocr>=3.0.0",
 ]
 
 [tool.uv.sources]

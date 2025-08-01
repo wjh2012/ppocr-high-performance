@@ -1664,7 +1664,6 @@ version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
     { name = "fastapi", extra = ["standard"] },
-    { name = "paddleocr" },
     { name = "setuptools" },
     { name = "uvicorn" },
 ]
@@ -1672,9 +1671,11 @@ dependencies = [
 [package.optional-dependencies]
 dev = [
     { name = "black" },
+    { name = "paddleocr" },
     { name = "paddlepaddle" },
 ]
 production = [
+    { name = "paddleocr" },
     { name = "paddlepaddle-gpu" },
 ]
 
@@ -1682,7 +1683,8 @@ production = [
 requires-dist = [
     { name = "black", marker = "extra == 'dev'" },
     { name = "fastapi", extras = ["standard"], specifier = ">=0.116.1" },
-    { name = "paddleocr", specifier = ">=3.0.0" },
+    { name = "paddleocr", marker = "extra == 'dev'", specifier = ">=3.0.0" },
+    { name = "paddleocr", marker = "extra == 'production'", specifier = ">=3.0.0" },
     { name = "paddlepaddle", marker = "extra == 'dev'", specifier = "==3.0.0", index = "https://www.paddlepaddle.org.cn/packages/stable/cpu" },
     { name = "paddlepaddle-gpu", marker = "extra == 'production'", specifier = "==3.0.0", index = "https://www.paddlepaddle.org.cn/packages/stable/cu118" },
     { name = "setuptools", specifier = ">=80.9.0" },
