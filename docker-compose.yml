@@ -14,6 +14,11 @@ services:
               capabilities: [ gpu ]
     networks:
       - custom_network
+    entrypoint: >
+      bash -c "
+        paddleocr install_hpi_deps gpu &&
+        uvicorn app.main:app --host 0.0.0.0 --port 8000
+      "
 
 networks:
   custom_network:
